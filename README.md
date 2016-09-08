@@ -13,7 +13,7 @@ ReactDOM) libraries, so we should include those in our code. Let's do that now b
 
 ```html
 <script src="node_modules/react/dist/react.js"></script>
-<script src="node_modules/react-dom/react-dom.js"></script>
+<script src="node_modules/react-dom/dist/react-dom.js"></script>
 ```
 
 These should go in the body tag, after any content, but _before_ the `index.js` script. That file will contain our own
