@@ -8,8 +8,8 @@
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
 
 Let's write some code! Before we start though, we need to set some things up. We're going to use the React (and
-ReactDOM) libraries, so we should include those in our code. Let's do that now by referencing the right files in our
-`index.html` file:
+ReactDOM) libraries, so we should include those in our code. If you haven't done so yet, run `npm install` to install
+our dependencies. Nowm let's add the libraries by loading the right scripts in our `index.html` file:
 
 ```html
 <script src="node_modules/react/dist/react.js"></script>
