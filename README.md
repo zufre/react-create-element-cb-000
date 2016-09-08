@@ -58,7 +58,7 @@ formatting using line breaks allows us to keep our code clean.
 Make sure to refresh the page, and voila, our title appears!
 
 ## Becoming a parent
-Now that we know how to render stuff, let's make our app a little more complex by introducing children elements. We'll
+Now that we know how to render stuff, let's make our app a little more complex by introducing childr elements. We'll
 create an element to render our title in (let's call it a container). Remember how we added a text child in our `title`
 component? Now we're going to add an element as a child, so we pass it by reference instead of using a string:
 
@@ -118,9 +118,9 @@ const list =
     React.createElement('h1', {}, 'My favorite ice cream flavors'),
     React.createElement('ul', {},
       [
-        React.createElement('li', {}, 'Chocolate'),
-        React.createElement('li', {}, 'Vanilla'),
-        React.createElement('li', {}, 'Banana')
+        React.createElement('li', { class: 'brown' }, 'Chocolate'),
+        React.createElement('li', { class: 'white' }, 'Vanilla'),
+        React.createElement('li', { class: 'yellow' }, 'Banana')
       ]
     ));
 
