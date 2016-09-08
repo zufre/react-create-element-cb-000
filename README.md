@@ -1,15 +1,23 @@
 # React createElement()
 
+## Overview
+
+In this lesson, we'll call `React.createElement()` and also describe how we can build elements out of other React elements. 
+
 ## Objectives
-1. Describe how to call `React.createElement()`
-2. Describe how we can build elements out of other React elements
+1. Call `React.createElement()` and describe its arguments
+2. Use `ReactDOM.render()` to render an element to a page 
+3. Describe how we can build elements out of other React elements
+4. Add child elements and nested child elements
+5. Pass properties to an element
+
 
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
 
 Let's write some code! Before we start though, we need to set some things up. We're going to use the React (and
 ReactDOM) libraries, so we should include those in our code. If you haven't done so yet, run `npm install` to install
-our dependencies. Nowm let's add the libraries by loading the right scripts in our `index.html` file:
+our dependencies. Now let's add the libraries by loading the right scripts in our `index.html` file:
 
 ```html
 <script src="node_modules/react/dist/react.js"></script>
@@ -58,7 +66,7 @@ formatting using line breaks allows us to keep our code clean.
 Make sure to refresh the page, and voila, our title appears!
 
 ## Becoming a parent
-Now that we know how to render stuff, let's make our app a little more complex by introducing childr elements. We'll
+Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll
 create an element to render our title in (let's call it a container). Remember how we added a text child in our `title`
 component? Now we're going to add an element as a child, so we pass it by reference instead of using a string:
 
