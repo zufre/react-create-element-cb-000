@@ -11,6 +11,16 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 4. Add child elements and nested child elements
 5. Pass properties to an element
 
+## Running the App
+
+We'll run out mini-React application using Python Simple Server. From the directory of this project, in your terminal, *simply* run:
+
+```
+$ python -m SimpleHTTPServer
+```
+
+To learn more about Python Simple Server, check out [this blog post](http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python). 
+
 
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
@@ -66,6 +76,7 @@ formatting using line breaks allows us to keep our code clean.
 Make sure to refresh the page, and voila, our title appears!
 
 ## Becoming a parent
+
 Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll
 create an element to render our title in (let's call it a container). Remember how we added a text child in our `title`
 component? Now we're going to add an element as a child, so we pass it by reference instead of using a string:
