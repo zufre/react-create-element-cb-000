@@ -13,7 +13,7 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 
 ## Running the App
 
-We'll run out mini-React application using Python Simple Server. From the directory of this project, in your terminal, *simply* run:
+We'll run our mini-React application using Python Simple Server. From the directory of this project, in your terminal, *simply* run:
 
 ```
 $ python -m SimpleHTTPServer
@@ -141,3 +141,5 @@ We can also add any other HTML attributes here, like `disabled`, `id`, and so on
 
 ## Resources
 - [Raw React](http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-create-element'>createElement</a> on Learn.co and start learning to code for free.</p>
