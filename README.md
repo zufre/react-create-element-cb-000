@@ -42,7 +42,7 @@ const title = React.createElement('h1', {}, 'My First React Code');
 
 Let's briefly talk about the arguments of `React.createElement()`.
 
-The first one is type of element we're creating, in this case an `<h1>` tag. This could also be another React component. If we're creating an HTML element, we pass in the name as a string, just like we did above. If we're creating a React component, we pass in the variable that the component is assigned to.
+The first one is the type of element we're creating, in this case an `<h1>` tag. This could also be another React component. If we're creating an HTML element, we pass in the name as a string, just like we did above. If we're creating a React component, we pass in the variable that the component is assigned to.
 
 The second argument is an object containing properties ('props' in React terms) that get passed to the component. Since we're just getting started with React, we won't use these just yet — but be aware that the second options serves this purpose.
 
