@@ -13,28 +13,26 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 
 ## Running the App
 
-We'll run our mini-React application using Python Simple Server. From the directory of this project, in your terminal, *simply* run:
+We'll run our mini-React application using `npm`. From the directory of this project, in your terminal, run:
 
 ```
-$ python -m SimpleHTTPServer
+$ npm start
 ```
 
-To learn more about Python Simple Server, check out [this blog post](http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python). 
-
+This should open a browser and display an empty white screen. 
 
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
 
-Let's write some code! Before we start though, we need to set some things up. We're going to use the React (and ReactDOM) libraries, so we should include those in our code. If you haven't done so yet, run `npm install` to install our dependencies. Now let's add the libraries by loading the right scripts in our `index.html` file:
+To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` and let's get started.
 
-```html
-<script src="node_modules/react/dist/react.js"></script>
-<script src="node_modules/react-dom/dist/react-dom.js"></script>
-```
+First we need to import the React library 
 
-These should go in the body tag, after any content, but _before_ the `index.js` script. That file will contain our own code, so it expects React to already be loaded by that point!
+```js
+import React from 'react';
+``` 
 
-To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` file and add the following:
+and then we can create our first element
 
 ```js
 const title = React.createElement('h1', {}, 'My First React Code');
@@ -50,6 +48,14 @@ Finally, the last argument is the children of that component. This can be a quot
 
 Now that we have our element, it's time to render it to the page. We do this using `ReactDOM.render()`. This takes two arguments: the first one being the thing we want to render (our `title` element), and the second one is a target DOM node to render things into.
 
+First we need to import this from the React Dom library
+
+```js
+import ReactDOM from 'react-dom';
+```
+
+and then we can render our React element from earlier.
+
 ```js
 ReactDOM.render(
   title,
@@ -57,15 +63,32 @@ ReactDOM.render(
 );
 ```
 
+The final code in `index.js` should look like this:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const title = React.createElement('h1', {}, 'My First React Code');
+
+ReactDOM.render(
+  title, 
+  document.getElementById('root')
+);
+```
+
 Even though all of this could easily fit on one line, it's generally a good idea to add line breaks to your arguments for `ReactDOM.render()`. Sometimes, the element you're rendering to the page can also contain children itself. The formatting using line breaks allows us to keep our code clean.
 
-Make sure to refresh the page, and voila, our title appears!
+Since we are using a build tool called Webpack (we will go into this much later in the course), you will notice that the page is reloading automatically. You should now see a screen that displays "My First React Code".
 
 ## Becoming a parent
 
 Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll create an element to render our title in (let's call it a container). Remember how we added a text child in our `title` component?\ Now we're going to add an element as a child, so we pass it by reference instead of using a string:
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const title = React.createElement('h1', {}, 'My First React Code');
 const container = React.createElement('div', {}, title);
 
@@ -78,13 +101,16 @@ ReactDOM.render(
 Our `title` seems a little lonely though... Let's add a sibling! We'll create a `paragraph` element and then pass it as another child to our `container` children.
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const title = React.createElement('h1', {}, 'My First React Code');
 const paragraph = React.createElement('p', {}, 'Writing some more HTML. Cool stuff!');
 const container = React.createElement('div', {}, [title, paragraph]);
 
 ReactDOM.render(
-  container,
-  document.getElementById('main')
+  container, 
+  document.getElementById('root')
 );
 ```
 
@@ -94,6 +120,9 @@ Note how if we want to add multiple children, we use an _array_!
 We can nest children as much as we want. We also don't need to store our elements in variables before using them, we can declare them inline as well (though the downside of this is less readable code):
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const list =
   React.createElement('div', {},
     React.createElement('h1', {}, 'My favorite ice cream flavors'),
@@ -103,15 +132,22 @@ const list =
         React.createElement('li', {}, 'Vanilla'),
         React.createElement('li', {}, 'Banana')
       ]
-    ));
+    )
+  );
 
-ReactDOM.render(list, document.getElementById('main'));
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
 ```
 
 ## Adding attributes
 As mentioned before, we pass properties to an element using the second argument (an object, which we've left empty for now). Suppose we wanted to add some classes to make our ice cream flavors stand out. What would we need to add? Let's try this...
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const list =
   React.createElement('div', {},
     React.createElement('h1', {}, 'My favorite ice cream flavors'),
@@ -121,9 +157,13 @@ const list =
         React.createElement('li', { class: 'white' }, 'Vanilla'),
         React.createElement('li', { class: 'yellow' }, 'Banana')
       ]
-    ));
+    )
+  );
 
-ReactDOM.render(list, document.getElementById('main'));
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
 ```
 
 Oops! That doesn't seem to work. If we take a look at our console, we'll see a helpful error message (ignore the error message about a `key` property, we'll get to that in another lesson):
@@ -136,6 +176,30 @@ Warning: Unknown DOM property class. Did you mean className?
 ```
 
 Using `className` instead will do the trick. Awesome! The prop is called `className` because `class` is a _reserved keyword_ in JavaScript. Using reserved keywords as keys in an object is something that you should never do, since this can result in unexpected behavior. Instead, React expects the `className` prop instead, if we want to add a class to our element.
+
+Let's update our code. 
+
+```js 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const list =
+  React.createElement('div', {},
+    React.createElement('h1', {}, 'My favorite ice cream flavors'),
+    React.createElement('ul', {},
+      [
+        React.createElement('li', { className: 'brown' }, 'Chocolate'),
+        React.createElement('li', { className: 'white' }, 'Vanilla'),
+        React.createElement('li', { className: 'yellow' }, 'Banana')
+      ]
+    )
+  );
+
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
+```
 
 We can also add any other HTML attributes here, like `disabled`, `id`, and so on. These props are also used to pass in custom data to our components, but we'll get to that later!
 
