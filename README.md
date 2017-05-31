@@ -24,7 +24,15 @@ This should open a browser and display an empty white screen.
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
 
-To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` file and add the following:
+To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` and let's get started.
+
+First we need to import the React library 
+
+```js
+import React from 'react';
+``` 
+
+and then we can create our first element
 
 ```js
 const title = React.createElement('h1', {}, 'My First React Code');
@@ -40,6 +48,14 @@ Finally, the last argument is the children of that component. This can be a quot
 
 Now that we have our element, it's time to render it to the page. We do this using `ReactDOM.render()`. This takes two arguments: the first one being the thing we want to render (our `title` element), and the second one is a target DOM node to render things into.
 
+First we need to import this from the React Dom library
+
+```js
+import ReactDOM from 'react-dom';
+```
+
+and then we can render our React element from earlier.
+
 ```js
 ReactDOM.render(
   title,
@@ -47,9 +63,23 @@ ReactDOM.render(
 );
 ```
 
+The final code in `index.js` should look like this:
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const title = React.createElement('h1', {}, 'My First React Code');
+
+ReactDOM.render(
+  title, 
+  document.getElementById('root')
+);
+```
+
 Even though all of this could easily fit on one line, it's generally a good idea to add line breaks to your arguments for `ReactDOM.render()`. Sometimes, the element you're rendering to the page can also contain children itself. The formatting using line breaks allows us to keep our code clean.
 
-Make sure to refresh the page, and voila, our title appears!
+Since we are using a build tool called Webpack (we will go into this much later in the course), you will notice that the page is reloading automatically. You should now see a screen that displays "My First React Code".
 
 ## Becoming a parent
 
