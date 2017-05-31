@@ -13,26 +13,16 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 
 ## Running the App
 
-We'll run our mini-React application using Python Simple Server. From the directory of this project, in your terminal, *simply* run:
+We'll run our mini-React application using `npm`. From the directory of this project, in your terminal, run:
 
 ```
-$ python -m SimpleHTTPServer
+$ npm start
 ```
 
-To learn more about Python Simple Server, check out [this blog post](http://www.linuxjournal.com/content/tech-tip-really-simple-http-server-python). 
-
+This should open a browser and display an empty white screen. 
 
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
-
-Let's write some code! Before we start though, we need to set some things up. We're going to use the React (and ReactDOM) libraries, so we should include those in our code. If you haven't done so yet, run `npm install` to install our dependencies. Now let's add the libraries by loading the right scripts in our `index.html` file:
-
-```html
-<script src="node_modules/react/dist/react.js"></script>
-<script src="node_modules/react-dom/dist/react-dom.js"></script>
-```
-
-These should go in the body tag, after any content, but _before_ the `index.js` script. That file will contain our own code, so it expects React to already be loaded by that point!
 
 To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` file and add the following:
 
