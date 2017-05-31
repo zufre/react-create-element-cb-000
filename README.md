@@ -86,6 +86,9 @@ Since we are using a build tool called Webpack (we will go into this much later 
 Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll create an element to render our title in (let's call it a container). Remember how we added a text child in our `title` component?\ Now we're going to add an element as a child, so we pass it by reference instead of using a string:
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const title = React.createElement('h1', {}, 'My First React Code');
 const container = React.createElement('div', {}, title);
 
@@ -98,13 +101,16 @@ ReactDOM.render(
 Our `title` seems a little lonely though... Let's add a sibling! We'll create a `paragraph` element and then pass it as another child to our `container` children.
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const title = React.createElement('h1', {}, 'My First React Code');
 const paragraph = React.createElement('p', {}, 'Writing some more HTML. Cool stuff!');
 const container = React.createElement('div', {}, [title, paragraph]);
 
 ReactDOM.render(
-  container,
-  document.getElementById('main')
+  container, 
+  document.getElementById('root')
 );
 ```
 
@@ -114,6 +120,9 @@ Note how if we want to add multiple children, we use an _array_!
 We can nest children as much as we want. We also don't need to store our elements in variables before using them, we can declare them inline as well (though the downside of this is less readable code):
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const list =
   React.createElement('div', {},
     React.createElement('h1', {}, 'My favorite ice cream flavors'),
@@ -123,15 +132,22 @@ const list =
         React.createElement('li', {}, 'Vanilla'),
         React.createElement('li', {}, 'Banana')
       ]
-    ));
+    )
+  );
 
-ReactDOM.render(list, document.getElementById('main'));
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
 ```
 
 ## Adding attributes
 As mentioned before, we pass properties to an element using the second argument (an object, which we've left empty for now). Suppose we wanted to add some classes to make our ice cream flavors stand out. What would we need to add? Let's try this...
 
 ```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const list =
   React.createElement('div', {},
     React.createElement('h1', {}, 'My favorite ice cream flavors'),
@@ -141,9 +157,13 @@ const list =
         React.createElement('li', { class: 'white' }, 'Vanilla'),
         React.createElement('li', { class: 'yellow' }, 'Banana')
       ]
-    ));
+    )
+  );
 
-ReactDOM.render(list, document.getElementById('main'));
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
 ```
 
 Oops! That doesn't seem to work. If we take a look at our console, we'll see a helpful error message (ignore the error message about a `key` property, we'll get to that in another lesson):
@@ -156,6 +176,30 @@ Warning: Unknown DOM property class. Did you mean className?
 ```
 
 Using `className` instead will do the trick. Awesome! The prop is called `className` because `class` is a _reserved keyword_ in JavaScript. Using reserved keywords as keys in an object is something that you should never do, since this can result in unexpected behavior. Instead, React expects the `className` prop instead, if we want to add a class to our element.
+
+Let's update our code. 
+
+```js 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const list =
+  React.createElement('div', {},
+    React.createElement('h1', {}, 'My favorite ice cream flavors'),
+    React.createElement('ul', {},
+      [
+        React.createElement('li', { className: 'brown' }, 'Chocolate'),
+        React.createElement('li', { className: 'white' }, 'Vanilla'),
+        React.createElement('li', { className: 'yellow' }, 'Banana')
+      ]
+    )
+  );
+
+ReactDOM.render(
+  list, 
+  document.getElementById('root')
+);
+```
 
 We can also add any other HTML attributes here, like `disabled`, `id`, and so on. These props are also used to pass in custom data to our components, but we'll get to that later!
 
