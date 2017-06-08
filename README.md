@@ -13,10 +13,10 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 
 ## Setting Up React
 
-Before we start working on this, let's go through some procedural setup to get React running on your system. React has a cli tool called Create React App that allow you to bootstrap React project quickly. Lets install this package globally so that we have the necessary dependency on our machine for the lessons and labs in the this section. 
+Before we start working on this, let's go through some procedural setup to get React running on your system. React has a cli tool called Create React App that allow you to bootstrap React project quickly. We will also install Webpack for the hot reload. Lets install these packages globally so that we have the necessary dependencies on our machine for the lessons and labs in the this section. 
 
 ```
-$ npm install -g create-react-app
+$ npm install -g create-react-app webpack
 ```
 
 Note!! You might have to run `sudo` before npm install depending on how you set up node. 
