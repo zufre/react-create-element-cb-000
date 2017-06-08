@@ -11,15 +11,27 @@ In this lesson, we'll call `React.createElement()` and also describe how we can 
 4. Add child elements and nested child elements
 5. Pass properties to an element
 
-## Running the App
+## Setting Up React
 
-We'll run our mini-React application using `npm`. From the directory of this project, in your terminal, run:
+Before we start working on this, let's go through some procedural setup to get React running on your system. React has a cli tool called Create React App that allow you to bootstrap React project quickly. Lets install this package globally so that we have the necessary dependency on our machine for the lessons and labs in the this section. 
 
 ```
-$ npm start
+$ npm install -g create-react-app
 ```
 
-This should open a browser and display an empty white screen. 
+Note!! You might have to run `sudo` before npm install depending on how you set up node. 
+
+We will be using the Create React App folder structure for all of our lessons and labs, so you should feel comfortable working with this tool when you decide to build your own React Playground. 
+
+## Running The Application
+
+We will be running our mini-React application using `npm`. From the directory of this project, in your terminal, run:
+
+```
+$ npm install && npm start
+```
+
+This should open a browser and display an empty white screen. Yay!!! We have our first React app :). Don't get too excited still much to learn and see.
 
 ## Baby steps
 ![Baby steps](https://media.giphy.com/media/2D4tYGhHKFYre/giphy.gif)
