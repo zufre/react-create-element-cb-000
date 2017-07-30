@@ -106,7 +106,7 @@ const container = React.createElement('div', {}, title);
 
 ReactDOM.render(
   container,
-  document.getElementById('main')
+  document.getElementById('root')
 );
 ```
 
