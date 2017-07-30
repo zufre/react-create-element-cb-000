@@ -95,7 +95,7 @@ Since we are using a build tool called Webpack (we will go into this much later 
 
 ## Becoming a parent
 
-Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll create an element to render our title in (let's call it a container). Remember how we added a text child in our `title` component?\ Now we're going to add an element as a child, so we pass it by reference instead of using a string:
+Now that we know how to render stuff, let's make our app a little more complex by introducing child elements. We'll create an element to render our title in (let's call it a container). Remember how we added a text child in our `title` component? Now we're going to add an element as a child, so we pass it by reference instead of using a string:
 
 ```js
 import React from 'react';
