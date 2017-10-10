@@ -2,26 +2,26 @@
 
 ## Overview
 
-In this lesson, we'll call `React.createElement()` and also describe how we can build elements out of other React elements. 
+In this lesson, we'll call `React.createElement()` and also describe how we can build elements out of other React elements.
 
 ## Objectives
 1. Call `React.createElement()` and describe its arguments
-2. Use `ReactDOM.render()` to render an element to a page 
+2. Use `ReactDOM.render()` to render an element to a page
 3. Describe how we can build elements out of other React elements
 4. Add child elements and nested child elements
 5. Pass properties to an element
 
 ## Setting Up React
 
-Before we start working on this, let's go through some procedural setup to get React running on your system. React has a cli tool called Create React App that allow you to bootstrap React project quickly. We will also install Webpack for the hot reload. Lets install these packages globally so that we have the necessary dependencies on our machine for the lessons and labs in the this section. 
+Before we start working on this, let's go through some procedural setup to get React running on your system. React has a cli tool called Create React App that allow you to bootstrap React project quickly. We will also install Webpack for the hot reload. Lets install these packages globally so that we have the necessary dependencies on our machine for the lessons and labs in the this section.
 
 ```
 $ npm install -g create-react-app webpack
 ```
 
-Note!! You might have to run `sudo` before npm install depending on how you set up node. 
+Note!! You might have to run `sudo` before npm install depending on how you set up node.
 
-We will be using the Create React App folder structure for all of our lessons and labs, so you should feel comfortable working with this tool when you decide to build your own React Playground. 
+We will be using the Create React App folder structure for all of our lessons and labs, so you should feel comfortable working with this tool when you decide to build your own React Playground.
 
 ## Running The Application
 
@@ -38,11 +38,11 @@ This should open a browser and display an empty white screen. Yay!!! We have our
 
 To kick things off, let's create a really basic page title in React using `React.createElement()`. Open up your `index.js` and let's get started.
 
-First we need to import the React library 
+First we need to import the React library
 
 ```js
 import React from 'react';
-``` 
+```
 
 and then we can create our first element
 
@@ -71,7 +71,7 @@ and then we can render our React element from earlier.
 ```js
 ReactDOM.render(
   title,
-  document.getElementById('root')
+  document.getElementById('global')
 );
 ```
 
@@ -84,8 +84,8 @@ import ReactDOM from 'react-dom';
 const title = React.createElement('h1', {}, 'My First React Code');
 
 ReactDOM.render(
-  title, 
-  document.getElementById('root')
+  title,
+  document.getElementById('global')
 );
 ```
 
@@ -106,7 +106,7 @@ const container = React.createElement('div', {}, title);
 
 ReactDOM.render(
   container,
-  document.getElementById('root')
+  document.getElementById('global')
 );
 ```
 
@@ -121,8 +121,8 @@ const paragraph = React.createElement('p', {}, 'Writing some more HTML. Cool stu
 const container = React.createElement('div', {}, [title, paragraph]);
 
 ReactDOM.render(
-  container, 
-  document.getElementById('root')
+  container,
+  document.getElementById('global')
 );
 ```
 
@@ -148,8 +148,8 @@ const list =
   );
 
 ReactDOM.render(
-  list, 
-  document.getElementById('root')
+  list,
+  document.getElementById('global')
 );
 ```
 
@@ -173,8 +173,8 @@ const list =
   );
 
 ReactDOM.render(
-  list, 
-  document.getElementById('root')
+  list,
+  document.getElementById('global')
 );
 ```
 
@@ -189,9 +189,9 @@ Warning: Unknown DOM property class. Did you mean className?
 
 Using `className` instead will do the trick. Awesome! The prop is called `className` because `class` is a _reserved keyword_ in JavaScript. Using reserved keywords as keys in an object is something that you should never do, since this can result in unexpected behavior. Instead, React expects the `className` prop instead, if we want to add a class to our element.
 
-Let's update our code. 
+Let's update our code.
 
-```js 
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -208,8 +208,8 @@ const list =
   );
 
 ReactDOM.render(
-  list, 
-  document.getElementById('root')
+  list,
+  document.getElementById('global')
 );
 ```
 
